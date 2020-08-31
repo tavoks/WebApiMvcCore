@@ -1,0 +1,9 @@
+C:\Users\tavok\OneDrive\Documentos\Codigo\DotNet\YugiohCollectionApi\src\DevIO.Business\bin\Debug\netcoreapp2.2\Yugioh.Business.deps.json
+C:\Users\tavok\OneDrive\Documentos\Codigo\DotNet\YugiohCollectionApi\src\DevIO.Business\bin\Debug\netcoreapp2.2\Yugioh.Business.dll
+C:\Users\tavok\OneDrive\Documentos\Codigo\DotNet\YugiohCollectionApi\src\DevIO.Business\bin\Debug\netcoreapp2.2\Yugioh.Business.pdb
+C:\Users\tavok\OneDrive\Documentos\Codigo\DotNet\YugiohCollectionApi\src\DevIO.Business\obj\Debug\netcoreapp2.2\Yugioh.Business.csprojAssemblyReference.cache
+C:\Users\tavok\OneDrive\Documentos\Codigo\DotNet\YugiohCollectionApi\src\DevIO.Business\obj\Debug\netcoreapp2.2\Yugioh.Business.csproj.CoreCompileInputs.cache
+C:\Users\tavok\OneDrive\Documentos\Codigo\DotNet\YugiohCollectionApi\src\DevIO.Business\obj\Debug\netcoreapp2.2\Yugioh.Business.AssemblyInfoInputs.cache
+C:\Users\tavok\OneDrive\Documentos\Codigo\DotNet\YugiohCollectionApi\src\DevIO.Business\obj\Debug\netcoreapp2.2\Yugioh.Business.AssemblyInfo.cs
+C:\Users\tavok\OneDrive\Documentos\Codigo\DotNet\YugiohCollectionApi\src\DevIO.Business\obj\Debug\netcoreapp2.2\Yugioh.Business.dll
+C:\Users\tavok\OneDrive\Documentos\Codigo\DotNet\YugiohCollectionApi\src\DevIO.Business\obj\Debug\netcoreapp2.2\Yugioh.Business.pdb
