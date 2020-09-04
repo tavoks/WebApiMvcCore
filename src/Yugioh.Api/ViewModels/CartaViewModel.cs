@@ -16,6 +16,7 @@ namespace YugiohCollection.ViewModels
         public TipoCarta Tipo { get; set; }
         public string Efeito { get; set; }
         public string Imagem { get; set; }
+        public string ImagemUpload { get; set; }
         public Duelista Duelista { get; set; }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
@@ -41,7 +42,7 @@ namespace Yugioh.Api.Controllers
         }
 
         // GET: api/Duelistas/5
-        [HttpGet("{id}")]
+        [HttpGet("{id:Guid}")]
         public async Task<ActionResult<DuelistaViewModel>> ObterPorId(Guid id)
         {
             var duelista = await ObterCartasDuelista(id);
@@ -51,22 +52,40 @@ namespace Yugioh.Api.Controllers
             return duelista;
         }
 
-        // POST: api/Duelistas
         [HttpPost]
         public async Task<ActionResult<DuelistaViewModel>> Adicionar(DuelistaViewModel duelistaViewModel)
         {
-
             if (!ModelState.IsValid) return NotFound();
 
+            var imgPrefixo = Guid.NewGuid() + "_" + duelistaViewModel.Imagem;
+            if (!UploadArquivo(duelistaViewModel.ImagemUpload, imgPrefixo))
+            {
+                return duelistaViewModel;
+            }
+
+            duelistaViewModel.Imagem = imgPrefixo + duelistaViewModel.ImagemUpload;
             await _duelistaService.Adicionar(_mapper.Map<Duelista>(duelistaViewModel));
 
             return duelistaViewModel;
-
         }
 
 
+        // POST: api/Duelistas
+        //[HttpPost]
+        //public async Task<ActionResult<DuelistaViewModel>> Adicionar(DuelistaViewModel duelistaViewModel)
+        //{
+
+        //    if (!ModelState.IsValid) return NotFound();
+
+        //    await _duelistaService.Adicionar(_mapper.Map<Duelista>(duelistaViewModel));
+
+        //    return duelistaViewModel;
+
+        //}
+
+
         // PUT: api/Duelistas/5
-        [HttpPut("{id}")]
+        [HttpPut("{id:Guid}")]
         public async Task<ActionResult<DuelistaViewModel>> Atualizar(Guid id, DuelistaViewModel duelistaViewModel)
         {
             if (id != duelistaViewModel.Id)
@@ -82,7 +101,7 @@ namespace Yugioh.Api.Controllers
         }
 
         // DELETE: api/Duelistas/5
-        [HttpDelete("{id}")]
+        [HttpDelete("{id:Guid}")]
         public async Task<ActionResult<DuelistaViewModel>> Excluir(Guid id)
         {
             var duelistaViewModel = await ObterCartasDuelista(id);
@@ -97,6 +116,58 @@ namespace Yugioh.Api.Controllers
         private async Task<DuelistaViewModel> ObterCartasDuelista(Guid id)
         {
             return _mapper.Map<DuelistaViewModel>(await _duelistaRepository.ObterCartasDuelista(id));
+        }
+
+        private bool UploadArquivo(string arquivo, string imgNome)
+        {
+            if (string.IsNullOrEmpty(arquivo))
+            {
+                return false;
+            }
+
+            var imageDataByteArray = Convert.FromBase64String(arquivo);
+
+            var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", imgNome);
+
+            if (System.IO.File.Exists(filePath))
+            {
+                return false;
+            }
+
+            try
+            {
+                System.IO.File.WriteAllBytes(filePath, imageDataByteArray);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+            
+            return true;
+        }
+        private async Task<bool> UploadArquivoAlternativo(IFormFile arquivo, string imgPrefixo)
+        {
+            if (arquivo == null || arquivo.Length == 0)
+            {
+                
+                return false;
+            }
+
+            var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/app/demo-webapi/src/assets", imgPrefixo + arquivo.FileName);
+
+            if (System.IO.File.Exists(path))
+            {
+                return false;
+            }
+
+            using (var stream = new FileStream(path, FileMode.Create))
+            {
+                await arquivo.CopyToAsync(stream);
+            }
+
+            return true;
         }
     }
 }

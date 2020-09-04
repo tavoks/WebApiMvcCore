@@ -14,5 +14,6 @@ namespace YugiohCollection.ViewModels
         public string Nome { get; set; }
         public string Imagem { get; set; }
         public IEnumerable<Carta> Cartas { get; set; }
+        public string ImagemUpload { get; set; }
     }
 }
