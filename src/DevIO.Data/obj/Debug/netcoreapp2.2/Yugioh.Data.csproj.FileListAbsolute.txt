@@ -1,4 +1,3 @@
-C:\Users\tavok\OneDrive\Documentos\Codigo\DotNet\YugiohCollectionApi\src\DevIO.Data\obj\Debug\netcoreapp2.2\Yugioh.Data.csproj.CoreCompileInputs.cache
 C:\Users\tavok\OneDrive\Documentos\Codigo\DotNet\YugiohCollectionApi\src\DevIO.Data\obj\Debug\netcoreapp2.2\Yugioh.Data.AssemblyInfoInputs.cache
 C:\Users\tavok\OneDrive\Documentos\Codigo\DotNet\YugiohCollectionApi\src\DevIO.Data\obj\Debug\netcoreapp2.2\Yugioh.Data.AssemblyInfo.cs
 C:\Users\tavok\OneDrive\Documentos\Codigo\DotNet\YugiohCollectionApi\src\DevIO.Data\bin\Debug\netcoreapp2.2\Yugioh.Data.deps.json
@@ -10,3 +9,7 @@ C:\Users\tavok\OneDrive\Documentos\Codigo\DotNet\YugiohCollectionApi\src\DevIO.D
 C:\Users\tavok\OneDrive\Documentos\Codigo\DotNet\YugiohCollectionApi\src\DevIO.Data\obj\Debug\netcoreapp2.2\Yugioh.Data.csproj.CopyComplete
 C:\Users\tavok\OneDrive\Documentos\Codigo\DotNet\YugiohCollectionApi\src\DevIO.Data\obj\Debug\netcoreapp2.2\Yugioh.Data.dll
 C:\Users\tavok\OneDrive\Documentos\Codigo\DotNet\YugiohCollectionApi\src\DevIO.Data\obj\Debug\netcoreapp2.2\Yugioh.Data.pdb
+C:\Users\tavok\OneDrive\Documentos\Codigo\DotNet\YugiohCollectionApi\src\DevIO.Data\bin\Debug\netcoreapp2.2\Yugioh.Data.runtimeconfig.json
+C:\Users\tavok\OneDrive\Documentos\Codigo\DotNet\YugiohCollectionApi\src\DevIO.Data\bin\Debug\netcoreapp2.2\Yugioh.Data.runtimeconfig.dev.json
+C:\Users\tavok\OneDrive\Documentos\Codigo\DotNet\YugiohCollectionApi\src\DevIO.Data\obj\Debug\netcoreapp2.2\Yugioh.Data.csproj.CoreCompileInputs.cache
+C:\Users\tavok\OneDrive\Documentos\Codigo\DotNet\YugiohCollectionApi\src\DevIO.Data\obj\Debug\netcoreapp2.2\Yugioh.Data.genruntimeconfig.cache
