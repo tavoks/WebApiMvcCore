@@ -209,6 +209,10 @@
               "version": "[2.2.0, )",
               "autoReferenced": true
             },
+            "Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer": {
+              "target": "Package",
+              "version": "[3.2.0, )"
+            },
             "Microsoft.AspNetCore.Razor.Design": {
               "suppressParent": "All",
               "target": "Package",
@@ -223,6 +227,10 @@
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[2.2.4, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[5.6.1, )"
             }
           },
           "imports": [

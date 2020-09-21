@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
@@ -19,6 +20,9 @@ using Microsoft.IdentityModel.Tokens;
 using Yugioh.Api.Configuration;
 using Yugioh.Api.Extensions;
 using Yugioh.Data.Context;
+using Swashbuckle.AspNetCore.Swagger;
+using Swashbuckle.AspNetCore.SwaggerGen;
+using Microsoft.OpenApi.Models;
 
 namespace Yugioh.Api
 {
@@ -41,11 +45,45 @@ namespace Yugioh.Api
 
             services.AddAutoMapper(typeof(Startup));
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-
             services.WebApiConfig();
 
-            services.ResolveDepndencies();
+            services.AddSwaggerGen(c =>
+            {
+
+                var security = new Dictionary<string, IEnumerable<string>>
+                {
+                    {"Bearer", new string[] { }}
+                };
+
+                c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+                {
+                    Description = "Insira o token JWT desta maneira: Bearer {seu token}",
+                    Name = "Authorization",
+                    In = ParameterLocation.Header,
+                    Type = SecuritySchemeType.ApiKey,
+                });
+
+                c.AddSecurityRequirement(new OpenApiSecurityRequirement()
+                {
+                    {
+                        new OpenApiSecurityScheme
+                        {
+                            Reference = new OpenApiReference
+                            {
+                                Type = ReferenceType.SecurityScheme,
+                                Id = "Bearer"
+                            },
+                            Scheme = "oauth2",
+                            Name = "Bearer",
+                            In = ParameterLocation.Header,
+
+                        },
+                        new List<string>()
+                    }
+               });
+            });
+
+            services.ResolveDependencies();
 
         }
 
@@ -65,7 +103,14 @@ namespace Yugioh.Api
             app.UseHttpsRedirection();
 
             app.UseAuthentication();
-            app.UseMvc();
+
+            app.UseMvcConfiguration();
+
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Yugioh API");
+            });
         }
     }
 }

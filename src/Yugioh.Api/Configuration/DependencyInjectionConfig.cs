@@ -13,7 +13,7 @@ namespace Yugioh.Api.Configuration
 {
     public static class DependencyInjectionConfig
     {
-        public static IServiceCollection ResolveDepndencies(this IServiceCollection services)
+        public static IServiceCollection ResolveDependencies(this IServiceCollection services)
         {
             services.AddScoped<ApiDbContext>();
             services.AddScoped<IDuelistaRepository, DuelistaRepository>();
